@@ -30,4 +30,5 @@ private double amount;
 private OperationType type;
 @ManyToOne
 private BankAccount bankAccount;
+private String Description;
 }

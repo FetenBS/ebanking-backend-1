@@ -28,7 +28,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="TYPE",length = 4,discriminatorType = DiscriminatorType.STRING)
-public class BankAccount {
+public  class BankAccount {
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 private Long id;
 private double balance;
@@ -37,6 +37,6 @@ private Date createdAt;
 private AccountStatus status;
 @ManyToOne
 private Customer customer;
-@OneToMany(mappedBy ="bankAccount",fetch = FetchType.EAGER)
+@OneToMany(mappedBy ="bankAccount",fetch = FetchType.LAZY)
 private List<AccountOperation> accountOperations;
 }
